@@ -1,0 +1,212 @@
+---
+title: "Getting Started with Azure AI Foundry"
+description: "Step into the pro-code AI platform, deploy models, configure your data, build evaluation pipelines, and create sophisticated AI solutions in Azure AI Foundry."
+tier: professional
+tags: ["azure", "ai-foundry", "development", "hands-on"]
+difficulty: 3
+xp: 150
+order: 3
+prerequisites: ["prompt-engineering-fundamentals"]
+author: "Agentic Adventure"
+publishedAt: "2025-01-15"
+featured: false
+---
+
+# Getting Started with Azure AI Foundry
+
+You've built agents in Copilot Studio. You've sharpened your prompt engineering. Now it's time to level up to the pro-code platform. Azure AI Foundry (the evolution of Azure AI Studio) is where you build AI solutions that go beyond what low-code tools can handle: custom RAG pipelines, multi-model orchestration, fine-tuned models, and production-grade evaluation.
+
+<QuestObjective completed={false}>Create an Azure AI Foundry project and hub</QuestObjective>
+
+<QuestObjective completed={false}>Deploy a model and interact with it in the playground</QuestObjective>
+
+<QuestObjective completed={false}>Connect your own data using Azure AI Search</QuestObjective>
+
+<QuestObjective completed={false}>Build and run an evaluation pipeline</QuestObjective>
+
+<QuestObjective completed={false}>Understand when to use AI Foundry vs. Copilot Studio</QuestObjective>
+
+<Callout type="info" title="Prerequisites">
+You'll need an Azure subscription with permissions to create resources. A Visual Studio Enterprise subscription, an MSDN subscription, or even an Azure free trial will work for exploration. If you're working in a client's environment, make sure you have Contributor access to a resource group.
+</Callout>
+
+## What is Azure AI Foundry?
+
+Azure AI Foundry is the unified platform for building, evaluating, and deploying AI applications on Azure. Think of it as the professional workshop compared to Copilot Studio's consumer-friendly tool bench. Both are valuable; they serve different needs.
+
+**Azure AI Foundry gives you:**
+
+- **Model catalogue:** access to OpenAI models (GPT-4o, GPT-4.1, o3, o4-mini), Microsoft models (Phi-4, MAI), Meta (Llama), Mistral, and many more
+- **Playground:** interactive environment for testing prompts and configurations before writing code
+- **Prompt flow:** visual and code-based orchestration for building complex AI workflows
+- **Evaluation tools:** automated evaluation of quality, safety, and groundedness
+- **Fine-tuning:** customise foundation models with your domain-specific data
+- **Deployment management:** production-grade model hosting with scaling, monitoring, and content safety
+
+## Step 1: Create a Hub and Project
+
+Azure AI Foundry organises work into **hubs** and **projects**. A hub is a shared environment (typically one per team or department) that manages connections, compute, and security. Projects are individual workspaces within a hub.
+
+1. Navigate to [ai.azure.com](https://ai.azure.com)
+2. Click **Create new project**
+3. If you don't have a hub, you'll be prompted to create one:
+   - **Hub name:** Choose something descriptive (e.g., "contoso-ai-hub")
+   - **Subscription:** Select your Azure subscription
+   - **Resource group:** Create a new one or use an existing one
+   - **Region:** Choose a region that supports the models you need (East US, West Europe, and Sweden Central have the broadest model support)
+4. Name your project (e.g., "policy-assistant-project")
+
+<Callout type="warning" title="Region Matters">
+Not all models are available in all regions, and quota allocations vary. Check the Azure OpenAI model availability matrix before creating your hub. Changing regions later means recreating resources. Get this right up front.
+</Callout>
+
+Behind the scenes, creating a hub provisions several Azure resources: an Azure AI Services account, an Azure AI Search service, a storage account, and a Key Vault. These work together to provide the full AI development experience.
+
+## Step 2: Deploy a Model
+
+With your project created, you need to deploy a model before you can use it:
+
+1. Go to **Model catalogue** in the left navigation
+2. Browse or search for the model you want. For getting started, **GPT-4o** is an excellent choice because it's fast, capable, and cost-effective
+3. Click the model, then click **Deploy**
+4. Configure the deployment:
+   - **Deployment name:** Something descriptive (e.g., "gpt-4o-main")
+   - **Model version:** Use the latest available
+   - **Deployment type:** Standard (pay-per-token) for development; Provisioned for production workloads with predictable throughput
+   - **Rate limit:** Set tokens-per-minute based on your expected usage
+
+<Callout type="tip" title="Start with Standard, Scale to Provisioned">
+Standard (pay-as-you-go) deployments are perfect for development, testing, and low-volume production. Move to Provisioned Throughput Units (PTUs) when you have predictable, sustained workloads; they offer guaranteed capacity and can be more cost-effective at scale.
+</Callout>
+
+## Step 3: Explore the Playground
+
+The playground is where you'll spend most of your time during development. It's an interactive environment for testing prompts, configurations, and data connections without writing code.
+
+### Chat Playground
+
+1. Navigate to **Playgrounds** → **Chat**
+2. Select your deployed model
+3. Enter a system message (use the prompt engineering techniques from your previous quest)
+4. Start chatting to test your configuration
+
+The playground lets you adjust parameters in real time:
+
+- **Temperature:** controls randomness. Lower (0.0-0.3) for factual tasks, higher (0.7-1.0) for creative tasks
+- **Max tokens:** limits response length. Set this based on your use case: 500 tokens for concise answers and 2000+ for detailed generation
+- **Top P:** alternative to temperature for controlling diversity. Generally, adjust one or the other, not both
+- **Frequency/Presence penalty:** reduce repetition in longer outputs
+
+### Add Your Data
+
+This is where Azure AI Foundry shines for enterprise use cases. The "Add your data" feature in the playground lets you connect your own documents and test RAG without writing code:
+
+1. Click **Add your data** in the playground
+2. Select a data source:
+   - **Azure AI Search:** the recommended option for production. Create a new index from your files, or connect to an existing one
+   - **Upload files:** quick path for testing. Upload PDFs, Word docs, or text files
+   - **Azure Blob Storage:** point to a container with documents
+3. Configure the search:
+   - **Search type:** Hybrid (keyword + vector) provides the best results in most cases
+   - **Chunk size:** 1024 tokens is a good default. Smaller chunks for precise Q&A, larger for summarization
+   - **Semantic ranking:** Enable for better relevance, especially with natural language queries
+
+Once configured, every chat message will be augmented with relevant content from your data before being sent to the model. You can see exactly which documents were retrieved and how they influenced the response.
+
+<Callout type="info" title="Azure AI Search Is the Foundation">
+Azure AI Search is the retrieval engine behind nearly every enterprise RAG pattern on Azure. It provides vector search, keyword search, hybrid search, and semantic ranking. Learning Azure AI Search well is one of the most valuable investments you can make as a partner.
+</Callout>
+
+## Step 4: Build an Evaluation Pipeline
+
+Building an agent that works in the playground is one thing. Proving it works reliably at scale is another. Azure AI Foundry's evaluation tools help you measure quality systematically.
+
+### Why Evaluate?
+
+Without evaluation, you're flying blind. You don't know if a prompt change improved accuracy or degraded it. You can't tell clients whether the agent meets quality standards. You can't detect regression when you update knowledge sources.
+
+### Creating an Evaluation
+
+1. Navigate to **Evaluation** in the left navigation
+2. Click **New evaluation**
+3. Choose what to evaluate:
+   - **A model deployment:** test a model with specific prompts and parameters
+   - **A prompt flow:** test an entire orchestrated workflow
+4. Select your metrics:
+
+| Metric | What It Measures |
+|--------|-----------------|
+| **Groundedness** | Are responses based on the provided context? |
+| **Relevance** | Do responses address the user's question? |
+| **Coherence** | Are responses logically structured and readable? |
+| **Fluency** | Is the language natural and well-formed? |
+| **Similarity** | How close are responses to reference answers? |
+| **F1 Score** | Precision and recall against expected content |
+
+5. Provide test data: a dataset of questions with expected answers (ground truth). Start with 50-100 question-answer pairs that cover your key scenarios.
+6. Run the evaluation and review results.
+
+<Callout type="tip" title="Build Your Test Set Incrementally">
+Don't wait until you have 1,000 perfect test cases. Start with 20 critical questions, run evaluations, and expand the test set as you learn which areas need more coverage. A small, high-quality test set is better than a large, sloppy one.
+</Callout>
+
+### Continuous Evaluation
+
+In production, evaluation isn't a one-time activity. Set up regular evaluation runs to:
+
+- Detect quality regression when knowledge sources are updated
+- Compare performance across model versions (e.g., GPT-4o vs. GPT-4.1)
+- Validate the impact of prompt changes before deploying them
+- Monitor groundedness to catch emerging hallucination patterns
+
+## When to Use AI Foundry vs. Copilot Studio
+
+This is a question you'll face with every client engagement. Here's a practical decision framework:
+
+**Choose Copilot Studio when:**
+- The agent needs to live inside Microsoft 365 (Teams, SharePoint)
+- The use case is conversational Q&A or guided processes
+- The builder is a citizen developer or business analyst
+- Speed to deployment is the priority
+- Standard connectors meet integration needs
+
+**Choose Azure AI Foundry when:**
+- You need custom model selection or fine-tuning
+- The solution requires complex multi-step orchestration
+- You need programmatic evaluation pipelines
+- Integration requires custom APIs or non-standard connectors
+- You're building for high-scale or multi-tenant scenarios
+- The solution will be embedded in a custom application
+
+**Use both when:**
+- You prototype in Copilot Studio for speed, then rebuild in AI Foundry for scale
+- Different agents in the same solution have different complexity needs
+- Copilot Studio handles the conversation layer while AI Foundry powers the backend AI processing
+
+<Callout type="warning" title="Don't Over-Engineer">
+A common partner mistake is jumping straight to Azure AI Foundry when Copilot Studio would have delivered 80% of the value in 20% of the time. Start simple. Move to AI Foundry when you hit real limitations, not imagined ones.
+</Callout>
+
+## From Playground to Production
+
+The playground is a development tool, not a deployment strategy. Moving to production requires:
+
+- **Code-based integration:** use the Azure OpenAI SDK (Python, C#, JavaScript) or REST APIs to call your models from application code
+- **Infrastructure as code:** define your AI resources using Bicep or Terraform for repeatable deployments
+- **CI/CD pipelines:** automate model deployment, evaluation, and promotion through environments
+- **Monitoring:** use Azure Monitor and Application Insights to track latency, errors, token usage, and cost
+- **Content safety:** configure Azure AI Content Safety filters appropriate for your use case
+
+<BillOfMaterials items={[
+  { name: "Azure AI Foundry Documentation", description: "Complete documentation for Azure AI Foundry (formerly Azure AI Studio)", link: "https://learn.microsoft.com/en-us/azure/ai-studio/", required: true },
+  { name: "Azure OpenAI Service Models", description: "Model availability, capabilities, and pricing for Azure OpenAI", link: "https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models", required: true },
+  { name: "Azure AI Search Documentation", description: "The retrieval engine behind enterprise RAG solutions", link: "https://learn.microsoft.com/en-us/azure/search/", required: true },
+  { name: "Evaluation in Azure AI Foundry", description: "How to evaluate your AI applications for quality and safety", link: "https://learn.microsoft.com/en-us/azure/ai-studio/concepts/evaluation-approach-gen-ai", required: false },
+  { name: "Azure OpenAI SDK for Python", description: "Python SDK for interacting with Azure OpenAI deployments", link: "https://learn.microsoft.com/en-us/azure/ai-services/openai/quickstart", required: false }
+]} />
+
+## What's Next
+
+You now have the technical skills to build agents at both the low-code and pro-code level. But building agents is only part of the partner journey. The real business opportunity is in packaging these capabilities as a managed service: recurring revenue, long-term relationships, and scalable delivery. Your next quest takes you to the Managed tier.
+
+<LinkCard href="/guides/designing-ai-managed-service" title="Designing an AI Managed Service" description="Learn how to package AI capabilities as a managed service with sustainable pricing models, SLAs, and partner economics." />

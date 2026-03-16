@@ -1,0 +1,189 @@
+---
+title: "Building Your First AI Agent"
+description: "Roll up your sleeves and build a working AI agent in Copilot Studio, from concept to deployment, with step-by-step guidance."
+tier: professional
+tags: ["hands-on", "copilot-studio", "agents", "getting-started"]
+difficulty: 3
+xp: 150
+order: 1
+author: "Agentic Adventure"
+publishedAt: "2025-01-15"
+featured: true
+---
+
+# Building Your First AI Agent
+
+Theory time is over, adventurer. In this quest, you'll build a real AI agent in Microsoft Copilot Studio, one that can answer questions, take actions, and deliver value. By the end, you'll have a working agent you can demo to clients and use as a foundation for future builds.
+
+<QuestObjective completed={false}>Create a new agent in Copilot Studio</QuestObjective>
+
+<QuestObjective completed={false}>Configure knowledge sources for grounded responses</QuestObjective>
+
+<QuestObjective completed={false}>Build a topic with actions and adaptive cards</QuestObjective>
+
+<QuestObjective completed={false}>Test the agent thoroughly using the built-in test panel</QuestObjective>
+
+<QuestObjective completed={false}>Publish the agent to a Teams channel</QuestObjective>
+
+<Callout type="info" title="Prerequisites">
+You'll need a Microsoft 365 environment with Copilot Studio licences. A developer tenant from the Microsoft 365 Developer Program works perfectly if you don't have a production environment available. You should also have completed the Advisory tier quests to understand the ecosystem context.
+</Callout>
+
+## What We're Building
+
+We'll build an **IT Policy Assistant**, an agent that helps employees find answers about company IT policies. This is a perfect first agent because:
+
+- It has a clear, bounded scope
+- It demonstrates knowledge grounding (RAG)
+- It includes both conversational and structured interactions
+- It's immediately useful and easy to demo
+- It maps to a real scenario you'll encounter with clients
+
+## Step 1: Create the Agent
+
+Open [Copilot Studio](https://copilotstudio.microsoft.com) and sign in with your Microsoft 365 account.
+
+1. Click **Create** in the left navigation
+2. Select **New agent**
+3. You'll land on the agent creation experience. Here's what to configure:
+
+**Name:** IT Policy Assistant
+
+**Description:** This is used by the AI to understand the agent's purpose. Be descriptive:
+
+> "You are an IT Policy Assistant for Contoso Ltd. You help employees find answers about IT policies including security, device management, software requests, and acceptable use. You are friendly, professional, and concise. If you don't know the answer, you direct the employee to the IT help desk."
+
+**Instructions:** This is the system prompt: the most critical configuration:
+
+> "Answer questions about Contoso's IT policies using only the knowledge sources provided. Do not make up policies. If a question is outside your knowledge, say: 'I don't have information about that specific policy. Please contact the IT help desk at helpdesk@contoso.com or ext. 4357.' Keep answers concise, under 200 words unless the user asks for detail. Use bullet points for multi-part answers."
+
+<Callout type="tip" title="System Prompt Design Matters">
+The instructions field is where agent quality is won or lost. Notice how our prompt includes: a defined role, clear boundaries, a fallback behaviour, a formatting preference, and a specific escalation path. We'll go deeper on prompt engineering in a dedicated quest.
+</Callout>
+
+## Step 2: Add Knowledge Sources
+
+An agent without knowledge is just a chatbot with opinions. Let's ground it in real data.
+
+1. In the agent editor, navigate to the **Knowledge** section
+2. Click **Add knowledge**
+3. You have several options:
+
+**SharePoint sites:** Point the agent at a SharePoint site containing your IT policy documents. Copilot Studio will automatically index and chunk the content.
+
+**Files:** Upload individual documents (PDFs, Word docs, PowerPoint) directly. Good for demos, but SharePoint is better for production.
+
+**Public websites:** Index a public-facing FAQ or policy page. Useful for agents that answer questions about published content.
+
+**Dataverse:** Connect to structured data in Dataverse tables. Ideal when your knowledge has structured fields (e.g., a table of approved software with columns for name, version, licence type, approval status).
+
+For our IT Policy Assistant, add:
+- A SharePoint site containing IT policy documents (or upload 3-4 sample policy PDFs)
+- Optionally, a Dataverse table of approved software
+
+<Callout type="warning" title="Data Quality Drives Agent Quality">
+If your source documents are poorly written, outdated, or contradictory, your agent's answers will be too. Spend time curating your knowledge sources before blaming the AI. Garbage in, garbage out applies more than ever with RAG-based agents.
+</Callout>
+
+## Step 3: Build a Custom Topic
+
+Topics in Copilot Studio define specific conversation flows, structured paths for when the agent needs to do more than just answer a question from its knowledge.
+
+Let's create a **Software Request** topic that guides employees through requesting new software:
+
+1. Go to **Topics** and click **Add a topic** → **From blank**
+2. Name it "Software Request"
+3. Add **trigger phrases:** the natural language inputs that should activate this topic:
+   - "I need new software"
+   - "Request a software application"
+   - "How do I get approved for new software"
+   - "I want to install an app"
+
+4. Build the conversation flow:
+
+**Node 1: Ask a question**
+> "What software are you looking to install? Please provide the name and what you'll use it for."
+
+Store the response in a variable: `SoftwareRequest`
+
+**Node 2: Ask a question**
+> "Is this for a specific project, or for general productivity?"
+
+Store in: `RequestReason`
+
+**Node 3: Send a message with an Adaptive Card**
+Create a confirmation card that summarizes the request and provides a "Submit" button.
+
+**Node 4: Call an action**
+Use a Power Automate flow to:
+- Create a row in a Dataverse table (or a list item in SharePoint)
+- Send a notification to the IT approval team via Teams
+- Send a confirmation email to the requester
+
+**Node 5: Send a message**
+> "Your software request has been submitted! Request ID: {RequestID}. The IT team typically reviews requests within 2 business days. You'll receive an email when your request is approved or if we need more information."
+
+<Callout type="info" title="Topics vs. Knowledge">
+Think of knowledge as the agent's memory and topics as the agent's skills. Knowledge handles "what is our password policy?" Topics handle "I need to request new software." A well-designed agent uses both.
+</Callout>
+
+## Step 4: Test Thoroughly
+
+Copilot Studio includes a built-in test panel. Use it aggressively:
+
+**Test knowledge grounding:**
+- Ask questions that are in your documents → expect accurate answers
+- Ask questions that are NOT in your documents → expect the fallback message
+- Ask questions that are partially covered → check for hallucination
+
+**Test the Software Request topic:**
+- Use the exact trigger phrases → topic should activate
+- Use paraphrased versions → topic should still activate
+- Try to confuse the flow → check that the agent recovers gracefully
+
+**Test edge cases:**
+- What happens with very long inputs?
+- What about inappropriate or off-topic questions?
+- Does the agent handle follow-up questions correctly?
+
+**Document your findings.** Every test failure is a prompt improvement or topic refinement opportunity.
+
+## Step 5: Publish to Teams
+
+Once you're satisfied with testing:
+
+1. Click **Publish** in the top right
+2. Go to **Channels** in the left navigation
+3. Select **Microsoft Teams**
+4. Configure the Teams appearance: name, icon, and description
+5. Click **Turn on Teams** and then **Open in Teams** to test
+
+Your agent now lives in Teams. Employees can chat with it directly or you can add it to a team channel.
+
+<Callout type="tip" title="Start Small, Iterate Fast">
+Don't try to build the perfect agent on day one. Launch with a focused scope, even just policy Q&A, and add capabilities based on real user feedback. The agents that succeed are the ones that evolve, not the ones that try to do everything at launch.
+</Callout>
+
+## Beyond the First Agent
+
+You've built a working agent. That's a real milestone. But this is a starting point, not a destination. Here's what separates a demo agent from a production agent:
+
+- **Analytics:** monitor conversation logs, topic resolution rates, and user satisfaction in Copilot Studio's built-in analytics
+- **Authentication:** configure user authentication so the agent knows who it's talking to and can personalise responses
+- **Security:** implement data loss prevention policies and restrict what data the agent can access
+- **Multi-language:** configure the agent to respond in your clients' languages
+- **Generative orchestration:** let the AI decide when to use topics vs. knowledge vs. actions, rather than relying solely on trigger phrases
+
+<BillOfMaterials items={[
+  { name: "Copilot Studio Quickstart", description: "Official quickstart guide for creating your first agent", link: "https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-get-started", required: true },
+  { name: "Copilot Studio Knowledge Sources", description: "How to configure and manage knowledge sources for grounding", link: "https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-copilot-studio", required: true },
+  { name: "Copilot Studio Topics", description: "Building structured conversation flows with topics", link: "https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-create-edit-topics", required: true },
+  { name: "Power Automate Integration", description: "Connecting Copilot Studio agents to automated workflows", link: "https://learn.microsoft.com/en-us/microsoft-copilot-studio/advanced-flow-create", required: false },
+  { name: "Adaptive Cards Designer", description: "Design rich interactive cards for your agent responses", link: "https://adaptivecards.io/designer/", required: false }
+]} />
+
+## What's Next
+
+You've built an agent. Now let's sharpen the skill that makes agents actually useful: prompt engineering. Your next quest teaches you the techniques that separate mediocre agents from exceptional ones.
+
+<LinkCard href="/guides/prompt-engineering-fundamentals" title="Prompt Engineering Fundamentals" description="Master the art of system prompts, few-shot learning, chain-of-thought reasoning, and structured outputs." />

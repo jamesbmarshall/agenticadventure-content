@@ -1,0 +1,23 @@
+[
+  {
+    "id": "first-advisory",
+    "title": "Your First AI Advisory Engagement",
+    "description": "Start from zero — learn what agentic AI is, map the Microsoft ecosystem, and run your first AI readiness assessment for a client.",
+    "emoji": "🗺️",
+    "guides": ["advisory/what-is-agentic-ai", "advisory/understanding-copilot-ecosystem", "advisory/ai-readiness-assessment"]
+  },
+  {
+    "id": "hands-on-builder",
+    "title": "Hands-On Agent Builder",
+    "description": "Get your hands dirty building AI agents — from prompt engineering basics through Copilot Studio to Azure AI Foundry.",
+    "emoji": "🔨",
+    "guides": ["professional/prompt-engineering-fundamentals", "professional/building-first-agent", "professional/azure-ai-foundry"]
+  },
+  {
+    "id": "full-journey",
+    "title": "The Complete Partner Journey",
+    "description": "The ultimate quest — from understanding AI fundamentals all the way to designing and operating a managed AI service.",
+    "emoji": "⭐",
+    "guides": ["advisory/what-is-agentic-ai", "advisory/understanding-copilot-ecosystem", "professional/building-first-agent", "managed/designing-ai-managed-service", "managed/operations-playbook"]
+  }
+]

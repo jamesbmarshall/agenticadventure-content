@@ -1,0 +1,172 @@
+---
+title: "Running an AI Readiness Assessment"
+description: "Learn how to evaluate a client's AI maturity across data, culture, infrastructure, and governance, then turn it into a paid advisory engagement."
+tier: advisory
+tags: ["advisory", "assessment", "client-engagement"]
+difficulty: 2
+xp: 125
+order: 3
+prerequisites: ["understanding-copilot-ecosystem"]
+author: "Agentic Adventure"
+publishedAt: "2025-01-15"
+featured: false
+---
+
+# Running an AI Readiness Assessment
+
+Here's a pattern you'll see again and again: a client says "we want to use AI" but can't answer basic questions about their data quality, governance posture, or what success looks like. They need an AI Readiness Assessment before they need an AI solution. And that assessment is one of the highest-value services you can offer.
+
+<QuestObjective completed={false}>Understand the four dimensions of AI readiness</QuestObjective>
+
+<QuestObjective completed={false}>Know what questions to ask in each dimension</QuestObjective>
+
+<QuestObjective completed={false}>Design a deliverable that clients will pay for</QuestObjective>
+
+<QuestObjective completed={false}>Position the assessment as a gateway to implementation work</QuestObjective>
+
+## Why Assessments Matter
+
+An AI readiness assessment does three things simultaneously:
+
+1. **Protects the client** from investing in AI before their foundation is solid
+2. **Protects you** from taking on projects destined to fail
+3. **Creates a roadmap** that naturally leads to your implementation and managed services
+
+<Callout type="info" title="The Business Case">
+A well-run AI readiness assessment typically takes 2-4 weeks of effort and can be priced at £10,000-£50,000 depending on organizational complexity. The ROI for the client is avoiding six-figure failed implementations. The ROI for you is a qualified pipeline.
+</Callout>
+
+## The Four Dimensions of AI Readiness
+
+Every organization's AI readiness can be evaluated across four interconnected dimensions. Weakness in any one dimension will limit the impact of the other three.
+
+### 1. Data Readiness
+
+This is where most organizations struggle. AI agents are only as good as the data they can access. Key questions to investigate:
+
+- **Data quality:** Is the data accurate, complete, and current? Are there known data quality issues in core systems?
+- **Data accessibility:** Can data be accessed programmatically? Is it locked in silos or legacy systems?
+- **Data governance:** Who owns the data? Are there classification policies? Is sensitive data identified and protected?
+- **Microsoft 365 data hygiene:** For Copilot deployments specifically, is SharePoint organised? Are permissions set correctly? Is there sensitive content exposed through oversharing?
+
+<Callout type="danger" title="The Oversharing Problem">
+Microsoft 365 Copilot surfaces data based on user permissions. If permissions are poorly managed, which they usually are, Copilot will happily show users data they shouldn't see. Assessing and remediating SharePoint permissions is often a critical pre-deployment workstream.
+</Callout>
+
+**Discovery activities:**
+- Interview data owners across key business functions
+- Audit SharePoint site permissions and sensitivity labels
+- Review existing data governance policies and enforcement
+- Assess API availability for line-of-business systems
+- Evaluate data freshness and quality in candidate use cases
+
+### 2. Technical Infrastructure
+
+Does the client have the technical foundation to support AI workloads? This dimension covers:
+
+- **Microsoft 365 licensing:** Do they have the right licences for Copilot? E3/E5? Copilot add-on licensing?
+- **Azure environment:** Is there an Azure tenant with appropriate governance? Can they provision AI resources?
+- **Identity and access:** Is Entra ID (Azure AD) properly configured? Is MFA enforced? Are conditional access policies in place?
+- **Network and security:** Can AI services reach the data they need? Are there firewall or proxy issues?
+- **Integration readiness:** Are APIs available for the systems agents will need to interact with?
+
+**Discovery activities:**
+- Review current Microsoft 365 and Azure licensing
+- Assess Entra ID configuration and security posture
+- Map the integration picture: what connects to what
+- Identify any regulatory or compliance constraints on cloud AI services
+
+### 3. Organizational Culture
+
+This is the dimension most partners skip, and it's often the one that determines success or failure:
+
+- **Leadership alignment:** Does the executive team understand AI beyond buzzwords? Are they willing to invest in change management?
+- **Risk appetite:** How does the organization feel about AI making decisions? What's their tolerance for imperfection?
+- **Change readiness:** How has the organization handled previous technology rollouts? Is there change fatigue?
+- **Skills and talent:** Who will own AI initiatives? Is there internal technical talent, or will everything be outsourced?
+- **Innovation culture:** Are people excited about AI, or afraid of it? Are there union or workforce concerns?
+
+**Discovery activities:**
+- Executive interviews (CIO, CTO, COO, business unit leaders)
+- Employee sentiment survey or focus groups
+- Review previous technology adoption outcomes
+- Identify AI champions and skeptics in the organization
+
+<Callout type="tip" title="Find the Champions">
+Every organization has a few people who are already experimenting with AI, using ChatGPT, building Power Automate flows, or prototyping with Copilot Studio. Find these people early. They're your internal allies and your proof points.
+</Callout>
+
+### 4. Governance and Responsible AI
+
+AI without governance is a liability. Clients need frameworks before they need agents:
+
+- **AI policy:** Does the organization have a policy on AI use? If not, are they open to creating one?
+- **Responsible AI principles:** How will they address fairness, transparency, accountability, and safety?
+- **Regulatory compliance:** Are there industry-specific regulations (healthcare, finance, government) that constrain AI use?
+- **Risk management:** How will AI-related risks be identified, assessed, and mitigated?
+- **Monitoring and audit:** How will they track what AI agents are doing and whether outcomes are acceptable?
+
+**Discovery activities:**
+- Review existing IT governance frameworks
+- Identify regulatory requirements relevant to AI
+- Assess current risk management processes
+- Evaluate whether existing compliance tools (Purview, Defender) are deployed
+
+## The Deliverable
+
+Your assessment should produce a tangible, professional deliverable. At minimum, include:
+
+### Readiness Scorecard
+
+Rate each dimension on a 1-5 scale with clear criteria:
+
+| Dimension | Score | Status |
+|-----------|-------|--------|
+| Data Readiness | 3/5 | Moderate: good data quality but permission issues |
+| Technical Infrastructure | 4/5 | Strong: Azure environment well-governed |
+| Organizational Culture | 2/5 | Developing: limited executive understanding |
+| Governance & Responsible AI | 1/5 | Early: no AI-specific policies exist |
+
+### Key Findings
+
+Summarize the 5-8 most important findings. Be specific and actionable, not generic. "SharePoint permissions grant all employees access to HR files containing salary data" hits harder than "data governance needs improvement."
+
+### Risk Register
+
+Identify the top risks to AI adoption and rate them by likelihood and impact. This shows the client you're thinking about their interests, not just selling technology.
+
+### Phased Roadmap
+
+This is where the assessment becomes a sales tool, used ethically. Lay out a 12-18 month roadmap:
+
+- **Phase 0 (Months 1-2):** Foundation: remediate critical data and governance gaps
+- **Phase 1 (Months 2-4):** Quick wins: deploy Microsoft 365 Copilot with proper adoption support
+- **Phase 2 (Months 4-8):** Custom agents: build agents for high-value workflows in Copilot Studio
+- **Phase 3 (Months 8-18):** Scale and optimise: expand to Azure AI Foundry for complex scenarios and establish managed services
+
+Each phase naturally maps to a statement of work. The assessment pays for itself by creating a qualified, scoped pipeline.
+
+<Callout type="warning" title="Stay Honest">
+If a client isn't ready for AI, tell them. Recommending foundation work before AI deployment builds more trust than overselling. The partner who says "you're not ready yet; here's what to fix first" wins the long-term relationship.
+</Callout>
+
+## Pricing the Assessment
+
+Don't give this away. A readiness assessment is a professional service with real deliverables. Consider these pricing models:
+
+- **Fixed fee:** £15,000-£40,000 for a standard 3-4 week engagement
+- **Tiered packages:** Light (data + infra only), Standard (all four dimensions), Detailed (includes workshops and executive briefings)
+- **Credit-back model:** Assessment fee credited toward implementation work if the client proceeds within 90 days
+
+<BillOfMaterials items={[
+  { name: "Microsoft 365 Copilot Adoption Guide", description: "Official guidance on driving Copilot adoption across an organization", link: "https://adoption.microsoft.com/en-us/copilot/", required: true },
+  { name: "Microsoft Purview Documentation", description: "Data governance and compliance tools essential for AI readiness", link: "https://learn.microsoft.com/en-us/purview/", required: true },
+  { name: "Responsible AI Principles", description: "Microsoft's framework for responsible AI development and deployment", link: "https://www.microsoft.com/en-us/ai/responsible-ai", required: true },
+  { name: "SharePoint Advanced Management", description: "Tools for managing permissions and oversharing in SharePoint", link: "https://learn.microsoft.com/en-us/sharepoint/get-ready-copilot-microsoft-365", required: false }
+]} />
+
+## What's Next
+
+You've learned how to assess readiness. Now it's time to get hands-on. Your next quest takes you into the Professional tier, where you'll build your first AI agent in Copilot Studio.
+
+<LinkCard href="/guides/building-first-agent" title="Building Your First AI Agent" description="Roll up your sleeves and build a working AI agent in Copilot Studio, from design to deployment." />

@@ -1,0 +1,228 @@
+---
+title: "Designing an AI Managed Service"
+description: "Learn how to package AI capabilities as a recurring managed service, covering pricing models, SLA design, monitoring, and sustainable partner economics."
+tier: managed
+tags: ["managed-services", "service-design", "business"]
+difficulty: 4
+xp: 175
+order: 1
+prerequisites: ["building-first-agent"]
+author: "Agentic Adventure"
+publishedAt: "2025-01-15"
+featured: true
+---
+
+# Designing an AI Managed Service
+
+You've built the advisory skills. You've built the technical skills. Now it's time to build the business. Implementation projects generate revenue. Managed services generate wealth. The difference is recurring income, compounding client relationships, and a business that grows in value over time.
+
+This quest teaches you how to design an AI managed service that clients want to buy and that you can deliver profitably.
+
+<QuestObjective completed={false}>Design a managed service offering with clear scope and deliverables</QuestObjective>
+
+<QuestObjective completed={false}>Choose a pricing model that works for both you and your clients</QuestObjective>
+
+<QuestObjective completed={false}>Define SLAs that are meaningful and achievable</QuestObjective>
+
+<QuestObjective completed={false}>Build a monitoring and continuous improvement framework</QuestObjective>
+
+<QuestObjective completed={false}>Model the economics to ensure profitability at scale</QuestObjective>
+
+## Why Managed Services?
+
+The project-based model has a fundamental problem: you eat what you kill. Every quarter starts at zero. Your revenue is directly proportional to the number of hours you sell, and there's a hard ceiling on how many hours you have.
+
+Managed services break this pattern:
+
+- **Recurring revenue:** monthly or annual contracts that renew and compound
+- **Predictable cash flow:** you know what's coming, so you can invest
+- **Deeper relationships:** you become a trusted partner, not a vendor
+- **Lower sales cost:** renewals cost a fraction of new business acquisition
+- **Higher valuation:** recurring revenue businesses are worth 2-4x more than project-based businesses
+
+AI managed services have an additional advantage: **AI agents need ongoing care.** Unlike a one-time software deployment, agents require monitoring, tuning, knowledge updates, prompt optimisation, and governance oversight. The work doesn't end at deployment; it evolves.
+
+<Callout type="info" title="The Magic Ratio">
+Industry benchmarks suggest that for every £1 spent on AI implementation, clients should budget £0.30-0.50 per year for ongoing management. If you deliver a £100,000 implementation, you're looking at £30,000-50,000 in annual managed services, per client.
+</Callout>
+
+## Service Design: What's In the Box?
+
+A managed AI service needs a clear scope. Ambiguity kills profitability; if clients expect everything and you've priced for something, you'll erode margins fast. Here's a framework for structuring your offering:
+
+### Core Service (Included in Every Tier)
+
+- **Agent monitoring:** uptime, response times, error rates, and conversation quality
+- **Knowledge management:** regular updates to knowledge sources as client documentation changes
+- **Prompt optimisation:** iterative improvement of system prompts based on conversation analytics
+- **Monthly reporting:** usage metrics, quality scores, and improvement recommendations
+- **Incident response:** investigation and remediation when agents produce incorrect or harmful outputs
+- **Platform maintenance:** keeping Copilot Studio agents and Azure AI Foundry deployments current
+
+### Enhanced Service (Mid-Tier Add-On)
+
+- **Quarterly business reviews:** deep analysis of AI impact with executive stakeholders
+- **New agent development:** building 1-2 new agents per quarter within agreed scope
+- **User training:** ongoing training sessions for new employees and new capabilities
+- **Advanced analytics:** custom dashboards, sentiment analysis, and productivity impact measurement
+- **Priority support:** 4-hour response time for critical issues
+
+### Premium Service (Top-Tier)
+
+- **Dedicated AI success manager:** a named person responsible for the client's AI outcomes
+- **Continuous experimentation:** proactive testing of new models, techniques, and use cases
+- **Multi-agent orchestration:** building and managing complex multi-agent workflows
+- **Custom integration development:** new connectors and integrations as business needs evolve
+- **Responsible AI governance:** ongoing audit, bias testing, and compliance reporting
+
+<Callout type="tip" title="Start with Core, Upsell Over Time">
+Don't overwhelm clients with a Premium pitch on day one. Start with Core managed services immediately after implementation. Once they see the value and trust your team, upgrading to Enhanced or Premium is a natural conversation, usually at the first quarterly review.
+</Callout>
+
+## Pricing Models
+
+Pricing a managed AI service is part science, part art. Here are the models that work:
+
+### Per-Agent, Per-Month
+
+Charge a fixed monthly fee for each agent you manage. Simple, predictable, and easy for clients to budget.
+
+| Agent Complexity | Monthly Fee | Includes |
+|-----------------|-------------|----------|
+| Simple (Q&A only) | £500-1,000 | Monitoring, monthly knowledge updates, reporting |
+| Standard (Q&A + actions) | £1,000-2,500 | Above + prompt optimisation, incident response |
+| Complex (multi-source, integrations) | £2,500-5,000 | Above + integration maintenance, quarterly optimisation |
+
+**Pros:** Simple, scalable, grows naturally as clients add agents.
+**Cons:** Doesn't account for usage volume; a heavily-used agent costs you more to support.
+
+### Per-Seat, Per-Month
+
+Charge based on the number of users who interact with managed agents. Common in Microsoft 365 Copilot adoption services.
+
+**Typical range:** £5-25 per user per month, depending on scope.
+
+**Pros:** Scales with organizational adoption (which is what you want to drive).
+**Cons:** Hard to predict cost-to-serve per user; some users are heavy consumers.
+
+### Consumption-Based
+
+Charge based on actual usage: API calls, tokens consumed, and conversations handled. This model passes Azure costs through with a management margin.
+
+**Typical structure:** Azure costs × 2.0-3.0 markup + fixed management fee.
+
+**Pros:** Directly tied to value; clients only pay for what they use.
+**Cons:** Revenue is less predictable; requires detailed usage tracking.
+
+### Outcome-Based
+
+The most sophisticated model is outcome-based pricing, which charges based on measurable business outcomes. Examples: cost per ticket deflected, hours saved, or revenue influenced.
+
+**Pros:** Directly aligned with client value; commands premium pricing.
+**Cons:** Requires baseline measurement, attribution can be complex, higher risk.
+
+<Callout type="warning" title="Avoid the Race to the Bottom">
+Don't compete on price. Compete on outcomes, trust, and quality. A partner charging £2,000/month who delivers measurable productivity gains will always beat a partner charging £500/month who just keeps the lights on.
+</Callout>
+
+## SLA Design
+
+Service Level Agreements define what clients can expect and what you're accountable for. AI services require SLAs that go beyond traditional IT metrics:
+
+### Availability SLAs
+
+| Metric | Target | Measurement |
+|--------|--------|-------------|
+| Agent uptime | 99.5% | Monthly, excluding planned maintenance |
+| Response latency | < 5 seconds p95 | Per conversation turn |
+| Incident response | 4 hours (critical) | Time to first response |
+| Incident resolution | 24 hours (critical) | Time to resolution or workaround |
+
+### Quality SLAs
+
+This is where AI managed services differentiate from traditional IT:
+
+| Metric | Target | Measurement |
+|--------|--------|-------------|
+| Answer accuracy | > 90% | Sampled monthly via human evaluation |
+| Groundedness | > 95% | Automated evaluation pipeline |
+| Escalation rate | < 15% | Conversations requiring human handoff |
+| User satisfaction | > 4.0/5.0 | Post-conversation feedback |
+
+### Improvement SLAs
+
+Commit to continuous improvement, not just maintenance:
+
+| Metric | Target | Measurement |
+|--------|--------|-------------|
+| Knowledge freshness | Updates within 5 business days of source change | Tracked per update request |
+| Prompt optimisation | At least 1 optimisation cycle per month | Documented in monthly report |
+| Quarterly recommendations | 3+ actionable improvement recommendations | Delivered at quarterly review |
+
+<Callout type="info" title="Measure What Matters">
+Traditional IT SLAs focus on uptime. AI SLAs must also focus on quality. An agent that's available 99.9% of the time but gives wrong answers 30% of the time is worse than useless; it erodes trust in AI across the organization.
+</Callout>
+
+## Partner Economics
+
+Let's talk money. Here's a simplified economic model for a managed AI service:
+
+### Per-Client Economics (Core Tier, 3 Agents)
+
+| Line Item | Monthly |
+|-----------|---------|
+| **Revenue** (3 agents × £1,500) | £4,500 |
+| **Azure costs** (AI Search, OpenAI, compute) | -£600 |
+| **Labor** (0.3 FTE at £5,000/month) | -£1,500 |
+| **Tools and overhead** (monitoring, reporting) | -£200 |
+| **Gross margin** | **£2,200 (49%)** |
+
+### Scaling Economics
+
+The magic of managed services is that costs don't scale linearly with clients:
+
+- **Tooling costs** are shared across all clients
+- **Monitoring systems** can watch 50 agents as easily as 5
+- **Knowledge improves:** your 20th deployment is faster than your first
+- **Templates and runbooks** amortize across the portfolio
+
+At 10 clients (30 agents), the same model looks different:
+
+| Line Item | Monthly |
+|-----------|---------|
+| **Revenue** | £45,000 |
+| **Azure costs** | -£6,000 |
+| **Labor** (2 FTE + 0.5 FTE senior) | -£12,500 |
+| **Tools and overhead** | -£1,000 |
+| **Gross margin** | **£25,500 (57%)** |
+
+Gross margin improves from 49% to 57% as you scale. That's the advantage of a managed services business.
+
+<Callout type="tip" title="Build Before You Need It">
+Invest in your monitoring tools, runbooks, and reporting templates before you have 10 clients. The partner who builds operational excellence early will scale smoothly. The partner who improvises will hit a wall at 5-7 clients.
+</Callout>
+
+## Getting Started: Your First Managed Service Client
+
+Don't wait for the perfect service design. Here's how to start:
+
+1. **Pick your best implementation client:** the one who trusts you most
+2. **Propose a 3-month pilot:** Core managed services at a reduced rate
+3. **Instrument everything:** set up monitoring, analytics, and reporting from day one
+4. **Deliver a spectacular first monthly report:** show them data they've never seen about their AI usage
+5. **At the 3-month review, present results and propose a 12-month agreement** with defined SLAs
+
+Most clients will say yes. They've seen the value, they trust your team, and they don't want to manage AI agents themselves.
+
+<BillOfMaterials items={[
+  { name: "Microsoft Partner Managed Services Guide", description: "Microsoft's guidance for partners building managed services practices", link: "https://partner.microsoft.com/en-us/partnership/managed-services-provider", required: true },
+  { name: "Azure Monitor Documentation", description: "Monitoring and diagnostics tools for Azure-hosted AI solutions", link: "https://learn.microsoft.com/en-us/azure/azure-monitor/", required: true },
+  { name: "Copilot Studio Analytics", description: "Built-in analytics for monitoring Copilot Studio agent performance", link: "https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-overview", required: false },
+  { name: "Azure Cost Management", description: "Tools for tracking and optimising Azure AI spending", link: "https://learn.microsoft.com/en-us/azure/cost-management-billing/", required: false }
+]} />
+
+## What's Next
+
+You've designed the service. Now you need to run it. The next quest covers the day-to-day operations of an AI managed service: monitoring, incident response, governance, and continuous improvement.
+
+<LinkCard href="/guides/operations-playbook" title="The AI Operations Playbook" description="Master the day-to-day operations of an AI managed service, from monitoring dashboards to incident response and responsible AI governance." />
