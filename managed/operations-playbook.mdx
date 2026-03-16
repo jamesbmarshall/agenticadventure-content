@@ -43,7 +43,7 @@ You can't manage what you can't measure. Build a monitoring stack that covers:
 - Azure AI Search query performance and index freshness
 - Cost tracking by client, agent, and model
 
-**Conversation Metrics (Copilot Studio Analytics + Custom)**
+**Conversation Metrics (Microsoft Copilot Studio Analytics + Custom)**
 - Total conversations and messages per day/week/month
 - Topic resolution rate: what percentage of conversations reach a successful conclusion?
 - Escalation rate: how often does the agent hand off to a human?
@@ -64,7 +64,7 @@ Don't make your operations team check five different portals. Build a unified da
 
 Your operations dashboard (Power BI or Azure Dashboard) pulls from three data sources:
 
-| Azure Monitor | Copilot Studio Analytics | Quality Evaluation Pipeline |
+| Azure Monitor | Microsoft Copilot Studio Analytics | Quality Evaluation Pipeline |
 |--------------|-------------------------|---------------------------|
 | Latency | Sessions | Groundedness |
 | Errors | Topics | Accuracy |
@@ -88,7 +88,7 @@ AI incidents are different from traditional IT incidents. When a server goes dow
 
 1. **Detection:** monitoring alert, user report, or scheduled quality review
 2. **Triage:** classify severity, assess impact scope (one user? all users? one topic? all topics?)
-3. **Containment:** if P1, consider disabling the affected agent or topic immediately. In Copilot Studio, you can disable topics instantly. In Azure AI Foundry, you can route traffic to a fallback deployment
+3. **Containment:** if P1, consider disabling the affected agent or topic immediately. In Microsoft Copilot Studio, you can disable topics instantly. In Microsoft Foundry, you can route traffic to a fallback deployment
 4. **Investigation:** review conversation logs, check knowledge sources, and test in the playground
 5. **Remediation:** fix the root cause (prompt update, knowledge correction, or configuration change)
 6. **Validation:** run the evaluation pipeline to confirm the fix works and hasn't introduced regressions
@@ -143,16 +143,16 @@ The world changes. Policies get updated. Products launch. People leave. If your 
 
 ### Model and Platform Changes
 
-Microsoft updates models, Copilot Studio adds features, Azure AI Foundry evolves. These changes can affect agent behaviour even if you don't change anything.
+Microsoft updates models, Microsoft Copilot Studio adds features, Microsoft Foundry evolves. These changes can affect agent behaviour even if you don't change anything.
 
 **Prevention:**
 - Track model version updates and test against your evaluation suite before adopting
-- Monitor Microsoft's release notes for Copilot Studio and Azure AI Foundry
+- Monitor Microsoft's release notes for Microsoft Copilot Studio and Microsoft Foundry
 - Maintain a staging environment where you can test platform updates before they reach production
 - Run regression tests after any platform update
 
 <Callout type="warning" title="Pin Your Model Versions">
-In Azure AI Foundry, always pin your model deployments to a specific version. Auto-updating to the latest model version might seem convenient, but it can change agent behaviour unpredictably. Update on your schedule, after testing.
+In Microsoft Foundry, always pin your model deployments to a specific version. Auto-updating to the latest model version might seem convenient, but it can change agent behaviour unpredictably. Update on your schedule, after testing.
 </Callout>
 
 ## Responsible AI Governance
@@ -255,7 +255,7 @@ Your monthly report is your most important sales tool. It reminds the client eve
 
 <BillOfMaterials items={[
   { name: "Azure Monitor Documentation", description: "Detailed monitoring and alerting for Azure resources", link: "https://learn.microsoft.com/en-us/azure/azure-monitor/", required: true },
-  { name: "Copilot Studio Analytics", description: "Built-in analytics dashboards for Copilot Studio agents", link: "https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-overview", required: true },
+  { name: "Microsoft Copilot Studio Analytics", description: "Built-in analytics dashboards for Microsoft Copilot Studio agents", link: "https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-overview", required: true },
   { name: "Responsible AI Dashboard", description: "Tools for assessing and mitigating AI fairness and safety issues", link: "https://learn.microsoft.com/en-us/azure/machine-learning/concept-responsible-ai-dashboard", required: true },
   { name: "Azure AI Content Safety", description: "Content moderation and safety tools for AI applications", link: "https://learn.microsoft.com/en-us/azure/ai-services/content-safety/", required: false },
   { name: "Power BI for Operational Dashboards", description: "Build unified operational dashboards across your managed service portfolio", link: "https://learn.microsoft.com/en-us/power-bi/", required: false }
@@ -266,7 +266,7 @@ Your monthly report is your most important sales tool. It reminds the client eve
 You've completed the core quest line, adventurer. You now have the knowledge to:
 
 - **Advise** clients on AI strategy, readiness, and the Microsoft ecosystem
-- **Build** AI agents using both Copilot Studio and Azure AI Foundry
+- **Build** AI agents using both Microsoft Copilot Studio and Microsoft Foundry
 - **Design** managed services with sustainable economics
 - **Operate** those services with monitoring, governance, and continuous improvement
 

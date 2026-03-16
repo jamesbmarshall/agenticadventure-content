@@ -1,6 +1,6 @@
 ---
-title: "Getting Started with Azure AI Foundry"
-description: "Step into the pro-code AI platform, deploy models, configure your data, build evaluation pipelines, and create sophisticated AI solutions in Azure AI Foundry."
+title: "Getting Started with Microsoft Foundry"
+description: "Step into the pro-code AI platform, deploy models, configure your data, build evaluation pipelines, and create sophisticated AI solutions in Microsoft Foundry."
 tier: professional
 tags: ["azure", "ai-foundry", "development", "hands-on"]
 difficulty: 3
@@ -12,11 +12,11 @@ publishedAt: "2025-01-15"
 featured: false
 ---
 
-# Getting Started with Azure AI Foundry
+# Getting Started with Microsoft Foundry
 
-You've built agents in Copilot Studio. You've sharpened your prompt engineering. Now it's time to level up to the pro-code platform. Azure AI Foundry (the evolution of Azure AI Studio) is where you build AI solutions that go beyond what low-code tools can handle: custom RAG pipelines, multi-model orchestration, fine-tuned models, and production-grade evaluation.
+You've built agents in Microsoft Copilot Studio. You've sharpened your prompt engineering. Now it's time to level up to the pro-code platform. Microsoft Foundry, previously Azure AI Studio, is where you build AI solutions that go beyond what low-code tools can handle: custom RAG pipelines, multi-model orchestration, fine-tuned models, and production-grade evaluation.
 
-<QuestObjective completed={false}>Create an Azure AI Foundry project and hub</QuestObjective>
+<QuestObjective completed={false}>Create a Microsoft Foundry Classic hub and project</QuestObjective>
 
 <QuestObjective completed={false}>Deploy a model and interact with it in the playground</QuestObjective>
 
@@ -24,17 +24,17 @@ You've built agents in Copilot Studio. You've sharpened your prompt engineering.
 
 <QuestObjective completed={false}>Build and run an evaluation pipeline</QuestObjective>
 
-<QuestObjective completed={false}>Understand when to use AI Foundry vs. Copilot Studio</QuestObjective>
+<QuestObjective completed={false}>Understand when to use Foundry vs. Microsoft Copilot Studio</QuestObjective>
 
 <Callout type="info" title="Prerequisites">
 You'll need an Azure subscription with permissions to create resources. A Visual Studio Enterprise subscription, an MSDN subscription, or even an Azure free trial will work for exploration. If you're working in a client's environment, make sure you have Contributor access to a resource group.
 </Callout>
 
-## What is Azure AI Foundry?
+## What is Microsoft Foundry?
 
-Azure AI Foundry is the unified platform for building, evaluating, and deploying AI applications on Azure. Think of it as the professional workshop compared to Copilot Studio's consumer-friendly tool bench. Both are valuable; they serve different needs.
+Microsoft Foundry is the unified platform for building, evaluating, and deploying AI applications on Azure. Think of it as the professional workshop compared to Microsoft Copilot Studio's consumer-friendly tool bench. Both are valuable; they serve different needs.
 
-**Azure AI Foundry gives you:**
+**Microsoft Foundry gives you:**
 
 - **Model catalogue:** access to OpenAI models (GPT-4o, GPT-4.1, o3, o4-mini), Microsoft models (Phi-4, MAI), Meta (Llama), Mistral, and many more
 - **Playground:** interactive environment for testing prompts and configurations before writing code
@@ -45,7 +45,7 @@ Azure AI Foundry is the unified platform for building, evaluating, and deploying
 
 ## Step 1: Create a Hub and Project
 
-Azure AI Foundry organises work into **hubs** and **projects**. A hub is a shared environment (typically one per team or department) that manages connections, compute, and security. Projects are individual workspaces within a hub.
+In Microsoft Foundry Classic, work is organised into **hubs** and **projects**. A hub is a shared environment, typically one per team or department, that manages connections, compute, and security. Projects are individual workspaces within a hub.
 
 1. Navigate to [ai.azure.com](https://ai.azure.com)
 2. Click **Create new project**
@@ -99,7 +99,7 @@ The playground lets you adjust parameters in real time:
 
 ### Add Your Data
 
-This is where Azure AI Foundry shines for enterprise use cases. The "Add your data" feature in the playground lets you connect your own documents and test RAG without writing code:
+This is where Microsoft Foundry shines for enterprise use cases. The "Add your data" feature in the playground lets you connect your own documents and test RAG without writing code:
 
 1. Click **Add your data** in the playground
 2. Select a data source:
@@ -119,7 +119,7 @@ Azure AI Search is the retrieval engine behind nearly every enterprise RAG patte
 
 ## Step 4: Build an Evaluation Pipeline
 
-Building an agent that works in the playground is one thing. Proving it works reliably at scale is another. Azure AI Foundry's evaluation tools help you measure quality systematically.
+Building an agent that works in the playground is one thing. Proving it works reliably at scale is another. Microsoft Foundry's evaluation tools help you measure quality systematically.
 
 ### Why Evaluate?
 
@@ -159,18 +159,18 @@ In production, evaluation isn't a one-time activity. Set up regular evaluation r
 - Validate the impact of prompt changes before deploying them
 - Monitor groundedness to catch emerging hallucination patterns
 
-## When to Use AI Foundry vs. Copilot Studio
+## When to Use Foundry vs. Microsoft Copilot Studio
 
 This is a question you'll face with every client engagement. Here's a practical decision framework:
 
-**Choose Copilot Studio when:**
+**Choose Microsoft Copilot Studio when:**
 - The agent needs to live inside Microsoft 365 (Teams, SharePoint)
 - The use case is conversational Q&A or guided processes
 - The builder is a citizen developer or business analyst
 - Speed to deployment is the priority
 - Standard connectors meet integration needs
 
-**Choose Azure AI Foundry when:**
+**Choose Microsoft Foundry when:**
 - You need custom model selection or fine-tuning
 - The solution requires complex multi-step orchestration
 - You need programmatic evaluation pipelines
@@ -179,12 +179,12 @@ This is a question you'll face with every client engagement. Here's a practical 
 - The solution will be embedded in a custom application
 
 **Use both when:**
-- You prototype in Copilot Studio for speed, then rebuild in AI Foundry for scale
+- You prototype in Microsoft Copilot Studio for speed, then rebuild in Foundry for scale
 - Different agents in the same solution have different complexity needs
-- Copilot Studio handles the conversation layer while AI Foundry powers the backend AI processing
+- Microsoft Copilot Studio handles the conversation layer while Foundry powers the backend AI processing
 
 <Callout type="warning" title="Don't Over-Engineer">
-A common partner mistake is jumping straight to Azure AI Foundry when Copilot Studio would have delivered 80% of the value in 20% of the time. Start simple. Move to AI Foundry when you hit real limitations, not imagined ones.
+A common partner mistake is jumping straight to Microsoft Foundry when Microsoft Copilot Studio would have delivered 80% of the value in 20% of the time. Start simple. Move to Foundry when you hit real limitations, not imagined ones.
 </Callout>
 
 ## From Playground to Production
@@ -198,10 +198,10 @@ The playground is a development tool, not a deployment strategy. Moving to produ
 - **Content safety:** configure Azure AI Content Safety filters appropriate for your use case
 
 <BillOfMaterials items={[
-  { name: "Azure AI Foundry Documentation", description: "Complete documentation for Azure AI Foundry (formerly Azure AI Studio)", link: "https://learn.microsoft.com/en-us/azure/ai-studio/", required: true },
-  { name: "Azure OpenAI Service Models", description: "Model availability, capabilities, and pricing for Azure OpenAI", link: "https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models", required: true },
+  { name: "Microsoft Foundry Documentation", description: "Complete documentation for Microsoft Foundry", link: "https://learn.microsoft.com/en-us/azure/foundry/what-is-foundry", required: true },
+  { name: "Azure OpenAI Models", description: "Model availability, capabilities, and pricing for Azure OpenAI", link: "https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models", required: true },
   { name: "Azure AI Search Documentation", description: "The retrieval engine behind enterprise RAG solutions", link: "https://learn.microsoft.com/en-us/azure/search/", required: true },
-  { name: "Evaluation in Azure AI Foundry", description: "How to evaluate your AI applications for quality and safety", link: "https://learn.microsoft.com/en-us/azure/ai-studio/concepts/evaluation-approach-gen-ai", required: false },
+  { name: "Evaluation in Microsoft Foundry", description: "How to evaluate your AI applications for quality and safety", link: "https://learn.microsoft.com/en-us/azure/ai-studio/concepts/evaluation-approach-gen-ai", required: false },
   { name: "Azure OpenAI SDK for Python", description: "Python SDK for interacting with Azure OpenAI deployments", link: "https://learn.microsoft.com/en-us/azure/ai-services/openai/quickstart", required: false }
 ]} />
 

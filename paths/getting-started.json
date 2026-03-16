@@ -9,7 +9,7 @@
   {
     "id": "hands-on-builder",
     "title": "Hands-On Agent Builder",
-    "description": "Get your hands dirty building AI agents — from prompt engineering basics through Copilot Studio to Azure AI Foundry.",
+    "description": "Get your hands dirty building AI agents, from prompt engineering basics through Microsoft Copilot Studio to Microsoft Foundry.",
     "emoji": "🔨",
     "guides": ["professional/prompt-engineering-fundamentals", "professional/building-first-agent", "professional/azure-ai-foundry"]
   },

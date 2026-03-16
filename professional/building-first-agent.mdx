@@ -1,6 +1,6 @@
 ---
 title: "Building Your First AI Agent"
-description: "Roll up your sleeves and build a working AI agent in Copilot Studio, from concept to deployment, with step-by-step guidance."
+description: "Roll up your sleeves and build a working AI agent in Microsoft Copilot Studio, from concept to deployment, with step-by-step guidance."
 tier: professional
 tags: ["hands-on", "copilot-studio", "agents", "getting-started"]
 difficulty: 3
@@ -15,7 +15,7 @@ featured: true
 
 Theory time is over, adventurer. In this quest, you'll build a real AI agent in Microsoft Copilot Studio, one that can answer questions, take actions, and deliver value. By the end, you'll have a working agent you can demo to clients and use as a foundation for future builds.
 
-<QuestObjective completed={false}>Create a new agent in Copilot Studio</QuestObjective>
+<QuestObjective completed={false}>Create a new agent in Microsoft Copilot Studio</QuestObjective>
 
 <QuestObjective completed={false}>Configure knowledge sources for grounded responses</QuestObjective>
 
@@ -26,7 +26,7 @@ Theory time is over, adventurer. In this quest, you'll build a real AI agent in 
 <QuestObjective completed={false}>Publish the agent to a Teams channel</QuestObjective>
 
 <Callout type="info" title="Prerequisites">
-You'll need a Microsoft 365 environment with Copilot Studio licences. A developer tenant from the Microsoft 365 Developer Program works perfectly if you don't have a production environment available. You should also have completed the Advisory tier quests to understand the ecosystem context.
+You'll need a Microsoft 365 environment with Microsoft Copilot Studio licences. A developer tenant from the Microsoft 365 Developer Program works perfectly if you don't have a production environment available. You should also have completed the Advisory tier quests to understand the ecosystem context.
 </Callout>
 
 ## What We're Building
@@ -41,7 +41,7 @@ We'll build an **IT Policy Assistant**, an agent that helps employees find answe
 
 ## Step 1: Create the Agent
 
-Open [Copilot Studio](https://copilotstudio.microsoft.com) and sign in with your Microsoft 365 account.
+Open [Microsoft Copilot Studio](https://copilotstudio.microsoft.com) and sign in with your Microsoft 365 account.
 
 1. Click **Create** in the left navigation
 2. Select **New agent**
@@ -69,7 +69,7 @@ An agent without knowledge is just a chatbot with opinions. Let's ground it in r
 2. Click **Add knowledge**
 3. You have several options:
 
-**SharePoint sites:** Point the agent at a SharePoint site containing your IT policy documents. Copilot Studio will automatically index and chunk the content.
+**SharePoint sites:** Point the agent at a SharePoint site containing your IT policy documents. Microsoft Copilot Studio will automatically index and chunk the content.
 
 **Files:** Upload individual documents (PDFs, Word docs, PowerPoint) directly. Good for demos, but SharePoint is better for production.
 
@@ -87,7 +87,7 @@ If your source documents are poorly written, outdated, or contradictory, your ag
 
 ## Step 3: Build a Custom Topic
 
-Topics in Copilot Studio define specific conversation flows, structured paths for when the agent needs to do more than just answer a question from its knowledge.
+Topics in Microsoft Copilot Studio define specific conversation flows, structured paths for when the agent needs to do more than just answer a question from its knowledge.
 
 Let's create a **Software Request** topic that guides employees through requesting new software:
 
@@ -129,7 +129,7 @@ Think of knowledge as the agent's memory and topics as the agent's skills. Knowl
 
 ## Step 4: Test Thoroughly
 
-Copilot Studio includes a built-in test panel. Use it aggressively:
+Microsoft Copilot Studio includes a built-in test panel. Use it aggressively:
 
 **Test knowledge grounding:**
 - Ask questions that are in your documents → expect accurate answers
@@ -168,17 +168,17 @@ Don't try to build the perfect agent on day one. Launch with a focused scope, ev
 
 You've built a working agent. That's a real milestone. But this is a starting point, not a destination. Here's what separates a demo agent from a production agent:
 
-- **Analytics:** monitor conversation logs, topic resolution rates, and user satisfaction in Copilot Studio's built-in analytics
+- **Analytics:** monitor conversation logs, topic resolution rates, and user satisfaction in Microsoft Copilot Studio's built-in analytics
 - **Authentication:** configure user authentication so the agent knows who it's talking to and can personalise responses
 - **Security:** implement data loss prevention policies and restrict what data the agent can access
 - **Multi-language:** configure the agent to respond in your clients' languages
 - **Generative orchestration:** let the AI decide when to use topics vs. knowledge vs. actions, rather than relying solely on trigger phrases
 
 <BillOfMaterials items={[
-  { name: "Copilot Studio Quickstart", description: "Official quickstart guide for creating your first agent", link: "https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-get-started", required: true },
-  { name: "Copilot Studio Knowledge Sources", description: "How to configure and manage knowledge sources for grounding", link: "https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-copilot-studio", required: true },
-  { name: "Copilot Studio Topics", description: "Building structured conversation flows with topics", link: "https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-create-edit-topics", required: true },
-  { name: "Power Automate Integration", description: "Connecting Copilot Studio agents to automated workflows", link: "https://learn.microsoft.com/en-us/microsoft-copilot-studio/advanced-flow-create", required: false },
+  { name: "Microsoft Copilot Studio Quickstart", description: "Official quickstart guide for creating your first agent", link: "https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-get-started", required: true },
+  { name: "Microsoft Copilot Studio Knowledge Sources", description: "How to configure and manage knowledge sources for grounding", link: "https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-copilot-studio", required: true },
+  { name: "Microsoft Copilot Studio Topics", description: "Building structured conversation flows with topics", link: "https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-create-edit-topics", required: true },
+  { name: "Power Automate Integration", description: "Connecting Microsoft Copilot Studio agents to automated workflows", link: "https://learn.microsoft.com/en-us/microsoft-copilot-studio/advanced-flow-create", required: false },
   { name: "Adaptive Cards Designer", description: "Design rich interactive cards for your agent responses", link: "https://adaptivecards.io/designer/", required: false }
 ]} />
 
