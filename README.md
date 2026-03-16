@@ -49,9 +49,14 @@ featured: false
 - **No em dashes** (—). Use commas, semicolons, or colons instead.
 - **Avoid AI clichés**: don't use "dive into", "leverage", "unlock", "empower", "harness", "cutting-edge", or "revolutionary".
 - **Tone**: warm, practical, encouraging. Write like a colleague sharing field notes, not a textbook.
-- **Audience**: Microsoft Partners — consultants, architects, developers, and practice leads.
+- **Audience**: Microsoft Partners: consultants, architects, developers, and practice leads.
 
-For full writing guidelines, see the copywriter agent instructions in the main repository.
+Additional style notes:
+- Use contractions naturally (you'll, it's, they're). Formal writing feels stiff here.
+- Prefer active voice. Keep sentences varied in length.
+- Use Oxford commas. Numbers one through nine as words; 10 and above as digits.
+- Don't open paragraphs with "In today's world", "In the ever-evolving", or similar throat-clearing.
+- Avoid overusing "Let's" as a paragraph opener.
 
 ### Available MDX components
 
